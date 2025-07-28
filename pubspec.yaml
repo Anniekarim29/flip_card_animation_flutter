@@ -63,6 +63,8 @@ flutter:
   assets:
     - assets/front.png
     - assets/back.png
+    - assets/screenshots/front_flip.png
+    - assets/screenshots/back_flip.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

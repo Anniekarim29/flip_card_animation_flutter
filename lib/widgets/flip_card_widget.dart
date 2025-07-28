@@ -21,7 +21,7 @@ class _FlipCardScreenState extends State<FlipCardScreen>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 700),
+      duration: const Duration(milliseconds: 800),
     );
 
     _animation = Tween<double>(begin: 0, end: 1).animate(
@@ -44,7 +44,7 @@ class _FlipCardScreenState extends State<FlipCardScreen>
         final angle = _animation.value * pi;
         final isUnder = angle > pi / 2;
 
-        // ✅ Delay the state change until halfway for smooth transition
+        // Update card side state halfway
         if (_animation.value >= 0.5 && isFront == isUnder) {
           Future.microtask(() {
             setState(() {
@@ -62,7 +62,19 @@ class _FlipCardScreenState extends State<FlipCardScreen>
             angle,
           );
 
-        final child = isUnder ? _buildCardBack() : _buildCardFront();
+        final child = isUnder
+            ? Transform(
+          transform: Matrix4.identity()
+            ..rotate(
+              flipAxis == Axis.horizontal
+                  ? Vector3(0, 1, 0)
+                  : Vector3(1, 0, 0),
+              pi,
+            ),
+          alignment: Alignment.center,
+          child: _buildCardBack(),
+        )
+            : _buildCardFront();
 
         return Transform(
           transform: transform,
@@ -156,14 +168,13 @@ class _FlipCardScreenState extends State<FlipCardScreen>
             ),
           ),
 
-          // Button
+          // Flip Button
           Padding(
             padding: const EdgeInsets.only(bottom: 30),
             child: GestureDetector(
               onTap: _flipCard,
               child: Container(
-                padding:
-                const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   gradient: const LinearGradient(

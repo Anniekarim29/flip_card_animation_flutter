@@ -1,16 +1,22 @@
-# flip_card_animation
+# 🎴 Flip Card Animation App – Flutter
 
-A new Flutter project.
+A sleek and responsive **Flutter app** showcasing smooth **4-way flip card animations**.  
+Ideal for quizzes, flashcards, onboarding steps, and product previews.
 
-## Getting Started
+This app lets users flip cards from **left, right, top, and bottom** with interactive animations.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 📸 UI Preview
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+| Front Side | Back Side |
+|------------|-----------|
+| ![](assets/screenshots/front_flip.png) | ![](assets/screenshots/back_flip.png) |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🚀 How to Run
+
+```bash
+flutter pub get
+flutter run
