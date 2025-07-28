@@ -1,4 +1,4 @@
-# Flip Card Animation App – Flutter
+# Flip Card Animation – Flutter
 
 A sleek and responsive **Flutter app** showcasing smooth **4-way flip card animations**.  
 Ideal for quizzes, flashcards, onboarding steps, and product previews.
